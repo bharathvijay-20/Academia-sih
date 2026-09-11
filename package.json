@@ -1,0 +1,22 @@
+{
+  "name": "academia-ecosystem",
+  "version": "1.0.0",
+  "description": "AI-Powered Academia-Industry Collaboration & Skill Development Platform with Role-Based Auth & Email OTP",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -s first -n \"BACKEND,FRONTEND\" -c \"cyan.bold,magenta.bold\" \"node --watch backend/src/server.js\" \"node frontend/node_modules/vite/bin/vite.js frontend\"",
+    "dev:backend": "node --watch backend/src/server.js",
+    "dev:frontend": "node frontend/node_modules/vite/bin/vite.js frontend",
+    "build:frontend": "npm --prefix frontend run build",
+    "seed": "node database/seeders/seed_default_users.js",
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
